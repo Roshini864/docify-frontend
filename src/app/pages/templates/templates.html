@@ -1,0 +1,29 @@
+<app-navbar />
+<div class="page-content">
+  <div class="page-header">
+    <div>
+      <h2>My Templates</h2>
+      <p>Manage your document templates</p>
+    </div>
+    <button type="button" (click)="createNew()">+ New Template</button>
+  </div>
+
+  <div class="empty-state" *ngIf="templates.length === 0">
+    <p>No templates yet. Create your first one!</p>
+  </div>
+
+  <div class="templates-grid" *ngIf="templates.length > 0">
+    <div class="template-card" *ngFor="let template of templates">
+      <div class="template-info">
+        <h3>{{ template.name }}</h3>
+        <p>Created by {{ template.createdBy }}</p>
+        <span class="date">{{ template.createdAt | date: 'dd MMM yyyy' }}</span>
+      </div>
+      <div class="template-actions">
+        <button type="button" class="btn-generate" (click)="generate(template.id)">Generate</button>
+        <button type="button" class="btn-edit" (click)="edit(template.id)">Edit</button>
+        <button type="button" class="btn-delete" (click)="delete(template.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

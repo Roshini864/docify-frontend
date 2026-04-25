@@ -1,0 +1,33 @@
+<app-navbar />
+<div class="page-content">
+  <div class="page-header">
+    <div>
+      <h2>History</h2>
+      <p>Your previously generated documents</p>
+    </div>
+  </div>
+
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="empty-state" *ngIf="documents.length === 0">
+    <p>No documents generated yet.</p>
+  </div>
+
+  <div class="documents-grid" *ngIf="documents.length > 0">
+    <div class="document-card" *ngFor="let doc of documents">
+  <div class="doc-left">
+    <div class="doc-icon">📄</div>
+    <div class="doc-info">
+      <h3>{{ doc.templateName }}</h3>
+      <span class="date">
+        {{ doc.createdAt ? (doc.createdAt | date: 'dd MMM yyyy, hh:mm a') : 'Date not available' }}
+      </span>
+    </div>
+  </div>
+  <div class="doc-actions">
+    <button type="button" class="btn-view" (click)="view(doc.id)">👁 View</button>
+    <button type="button" class="btn-download" (click)="download(doc.id)">⬇ Download</button>
+  </div>
+</div>
+    </div>
+</div>

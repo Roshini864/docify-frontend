@@ -1,0 +1,33 @@
+<app-navbar />
+<div class="page-content">
+  <div class="page-header">
+    <div>
+      <h2>Generate Document</h2>
+      <p>Fill in the fields to generate your document</p>
+    </div>
+    <div class="header-right">
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+      <button type="button" (click)="generate()" [disabled]="loading">
+        {{ loading ? 'Generating...' : 'Generate PDF' }}
+      </button>
+    </div>
+  </div>
+
+  <div class="generate-card" *ngIf="template">
+    <h3>{{ template.name }}</h3>
+
+    <div class="form-group" *ngFor="let placeholder of placeholders">
+      <label>{{ placeholder }}</label>
+      <input
+        type="text"
+        [(ngModel)]="values[placeholder]"
+        [placeholder]="'Enter ' + placeholder"
+      />
+    </div>
+  </div>
+
+  <div class="loading-state" *ngIf="!template">
+    <p>Loading template...</p>
+  </div>
+</div>

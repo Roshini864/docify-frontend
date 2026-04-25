@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="navbar-brand">Docify</div>
+    <div class="navbar-links">
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/templates" routerLinkActive="active">Templates</a>
+        <a routerLink="/history" routerLinkActive="active">History</a>
+    </div>
+    <div class="navbar-user">
+        <div class="user-avatar" (click)="toggleMenu()">
+            {{ getInitial() }}
+        </div>
+        <div class="user-menu" *ngIf="menuOpen">
+            <div class="user-email">{{ authService.getLoggedInName() }}</div>
+            <hr>
+            <button type="button" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</nav>

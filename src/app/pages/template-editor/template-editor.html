@@ -1,0 +1,26 @@
+<app-navbar />
+<div class="page-content">
+  <div class="page-header">
+    <div>
+      <h2>{{ isEditMode ? 'Edit Template' : 'Create Template' }}</h2>
+      <p>{{ isEditMode ? 'Update your template' : 'Design a new document template' }}</p>
+    </div>
+    <div class="header-right">
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+      <button type="button" (click)="save()">{{ isEditMode ? 'Update' : 'Save Template' }}</button>
+    </div>
+  </div>
+
+  <div class="editor-card">
+    <div class="form-group">
+      <label>Template Name</label>
+      <input type="text" [(ngModel)]="templateName" placeholder="e.g. Joining Notice" />
+    </div>
+
+    <div class="form-group">
+      <label>Content <span class="hint">Use double curly braces for dynamic fields e.g. name, date, location</span></label>
+      <div id="editor"></div>
+    </div>
+  </div>
+</div>
