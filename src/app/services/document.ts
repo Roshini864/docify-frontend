@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DocumentService {
-  private baseUrl = 'http://https://docify-backend-production-df37.up.railway.app/api/documents';
+  private baseUrl = 'https://docify-backend-production-df37.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class TemplateService {
 
-  private baseUrl = 'http://https://docify-backend-production-df37.up.railway.app/api/templates';
+  private baseUrl = 'https://docify-backend-production-df37.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

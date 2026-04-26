@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private baseUrl = 'http://https://docify-backend-production-df37.up.railway.app/api/auth';
+  private baseUrl = 'https://docify-backend-production-df37.up.railway.app';
 
   constructor(private http: HttpClient) {}
 
